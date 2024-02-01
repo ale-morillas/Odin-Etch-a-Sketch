@@ -1,5 +1,5 @@
 // Board
-const board = document.querySelector(".container-board");
+let board = document.querySelector(".container-board");
 const gridSize = 16;
 
 // Drawing board
@@ -16,7 +16,6 @@ function drawBoard(gridSize = 16) {
     const rowDiv = document.createElement("div");
     rowDiv.className = "rowDiv";
     board.appendChild(rowDiv);
-    //Create the margins
 
     for (let j = 0; j < gridSize; j++) {
       // Create the columns
@@ -35,4 +34,4 @@ function drawBoard(gridSize = 16) {
   }
 }
 
-drawBoard(100);
+drawBoard();
