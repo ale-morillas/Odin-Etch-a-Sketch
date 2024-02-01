@@ -62,3 +62,17 @@ function changeSize() {
 
 let changeSizeBtn = document.querySelector("#changeSize");
 changeSizeBtn.addEventListener("click", changeSize);
+
+// Black Pencil Button
+function colorBlack() {
+  const columnItems = document.querySelectorAll(".columnItem");
+
+  columnItems.forEach((columnItem) => {
+    columnItem.addEventListener("mouseenter", () => {
+      columnItem.style.backgroundColor = "black";
+    });
+  });
+}
+
+let pencilBlack = document.querySelector("#blackPen");
+pencilBlack.addEventListener("click", colorBlack);
