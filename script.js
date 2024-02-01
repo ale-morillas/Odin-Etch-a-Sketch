@@ -76,3 +76,29 @@ function colorBlack() {
 
 let pencilBlack = document.querySelector("#blackPen");
 pencilBlack.addEventListener("click", colorBlack);
+
+//Reset Draw
+function resetDraw() {
+  const columnItems = document.querySelectorAll(".columnItem");
+
+  columnItems.forEach((columnItem) => {
+    columnItem.style.backgroundColor = "white";
+  });
+}
+
+let resetDrawBtn = document.querySelector("#resetDraw");
+resetDrawBtn.addEventListener("click", resetDraw);
+
+// Erase Draw
+function eraseDraw() {
+  const columnItems = document.querySelectorAll(".columnItem");
+
+  columnItems.forEach((columnItem) => {
+    columnItem.addEventListener("mouseenter", () => {
+      columnItem.style.backgroundColor = "white";
+    });
+  });
+}
+
+let eraseBtn = document.querySelector("#erase");
+eraseBtn.addEventListener("click", eraseDraw);
