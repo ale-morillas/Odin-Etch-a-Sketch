@@ -13,15 +13,15 @@ function drawBoard(gridSize = 16) {
   // Create Row and Column divs
   for (let i = 0; i < gridSize; i++) {
     // Create the rows
-    const rowDiv = document.createElement("div");
-    rowDiv.className = "rowDiv";
-    board.appendChild(rowDiv);
+    const columnDiv = document.createElement("div");
+    columnDiv.className = "columnDiv";
+    board.appendChild(columnDiv);
 
     for (let j = 0; j < gridSize; j++) {
       // Create the columns
       const columnItem = document.createElement("div");
       columnItem.className = "columnItem";
-      rowDiv.appendChild(columnItem);
+      columnDiv.appendChild(columnItem);
 
       //Columns dimensions
       columnItem.style.height = defaultDimensions + "px";
@@ -30,8 +30,35 @@ function drawBoard(gridSize = 16) {
       columnItem.style.backgroundColor = "white";
       columnItem.style.border = "solid 1px #2e1760";
     }
-    rowDiv.style.height = defaultDimensions + "px";
+    columnDiv.style.height = defaultDimensions + "px";
   }
 }
 
 drawBoard();
+
+//Remove the board
+function removeBoard() {
+  const columnDivs = document.querySelectorAll(".columnDiv");
+
+  columnDivs.forEach((columnDiv) => {
+    while (columnDiv.firstChild) {
+      columnDiv.removeChild(columnDiv.firstChild);
+    }
+    columnDiv.parentNode.removeChild(columnDiv);
+  });
+}
+
+// Change Board Size
+function changeSize() {
+  let input;
+
+  do {
+    input = parseInt(prompt("Enter a size between 2 and 100"));
+  } while (input < 2 || input > 100);
+
+  removeBoard();
+  drawBoard(input);
+}
+
+let changeSizeBtn = document.querySelector("#changeSize");
+changeSizeBtn.addEventListener("click", changeSize);
