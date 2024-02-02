@@ -102,3 +102,23 @@ function eraseDraw() {
 
 let eraseBtn = document.querySelector("#erase");
 eraseBtn.addEventListener("click", eraseDraw);
+
+// Rainbow Button
+function rainbowColor() {
+  const columnItems = document.querySelectorAll(".columnItem");
+
+  columnItems.forEach((columnItem) => {
+    columnItem.addEventListener("mouseenter", () => {
+      const hexVal = "0123456789abcdef";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        let ranNum = Math.floor(Math.random() * 16);
+        color += hexVal[ranNum];
+      }
+      columnItem.style.backgroundColor = color;
+    });
+  });
+}
+
+let rainbowPen = document.querySelector("#rainbowPen");
+rainbowPen.addEventListener("click", rainbowColor);
