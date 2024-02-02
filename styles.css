@@ -75,3 +75,17 @@ button:hover {
   align-items: center;
   gap: 48px;
 }
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  font-family: "Bai Jamjuree", sans-serif;
+  font-size: 22px;
+  color: rgb(209, 216, 223);
+}
+
+a {
+  color: rgb(209, 216, 223);
+  text-decoration: none;
+}
